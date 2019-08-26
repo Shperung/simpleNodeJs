@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const url = require('url');
 
 // простий варіант
 /*const server = (req, res) => {
@@ -34,12 +35,12 @@ server.on('request', (req, res) => {
 });
 
 server.on('request', (req, res) => {
-	console.log('req-:', req.method, req.url);
+	console.log('REQUEST:', req.method, req.url);
+	console.log('STATUS:', res.statusCode);
+	console.log('URL:', url.parse(req.url, true));
 });
 
 server.on('listening', () => {
 	console.log('Listening on 8080......');
 });
-
-
 
